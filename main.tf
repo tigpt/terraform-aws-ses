@@ -58,20 +58,22 @@ resource "aws_ses_domain_mail_from" "this" {
 
 # Route53 MX record
 resource "aws_route53_record" "ses_domain_mail_from_mx" {
-  zone_id = var.zone_id
-  name    = aws_ses_domain_mail_from.this.mail_from_domain
-  type    = "MX"
-  ttl     = "600"
-  records = ["10 feedback-smtp.${data.aws_region.current.name}.amazonses.com"]
+  provider = aws.domain
+  zone_id  = var.zone_id
+  name     = aws_ses_domain_mail_from.this.mail_from_domain
+  type     = "MX"
+  ttl      = "600"
+  records  = ["10 feedback-smtp.${data.aws_region.current.name}.amazonses.com"]
 }
 
 # Route53 TXT record for SPF
 resource "aws_route53_record" "ses_domain_mail_from_txt" {
-  zone_id = var.zone_id
-  name    = aws_ses_domain_mail_from.this.mail_from_domain
-  type    = "TXT"
-  ttl     = "600"
-  records = ["v=spf1 include:amazonses.com -all"]
+  provider = aws.domain
+  zone_id  = var.zone_id
+  name     = aws_ses_domain_mail_from.this.mail_from_domain
+  type     = "TXT"
+  ttl      = "600"
+  records  = ["v=spf1 include:amazonses.com -all"]
 }
 
 
