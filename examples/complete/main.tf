@@ -11,7 +11,6 @@ module "ses" {
   quarentine_email = "mail@sample.com"
 
   providers = {
-    aws.ses    = aws.usw1
     aws.domain = aws.usw2
   }
 }

@@ -1,3 +1,1 @@
-data "aws_region" "current" {
-  provider = aws.ses
-}
+data "aws_region" "current" {}

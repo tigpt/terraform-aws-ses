@@ -3,15 +3,13 @@
 #######################
 
 resource "aws_ses_domain_identity" "this" {
-  provider = aws.ses
-  domain   = var.domain
+  domain = var.domain
 }
 
 # setup dkim
 
 resource "aws_ses_domain_dkim" "this" {
-  provider = aws.ses
-  domain   = var.domain
+  domain = var.domain
 }
 
 resource "aws_route53_record" "amazonses_dkim_record" {
@@ -54,6 +52,9 @@ resource "aws_sesv2_account_vdm_attributes" "this" {
 resource "aws_ses_domain_mail_from" "this" {
   domain           = var.domain
   mail_from_domain = "ses.${var.domain}"
+  depends_on = [
+    aws_ses_domain_identity.this
+  ]
 }
 
 # Route53 MX record
