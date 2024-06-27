@@ -19,6 +19,14 @@ module "ses" {
 }
 ```
 
+## Support
+
+Do you want to help me maintain this module? Buy an AWS SES t-shirt!
+
+[![Buy an AWS SES t-shirt](https://cottonbureau.com/mockup?vid=20449976&hash=84sz&w=120)](https://cottonbureau.com/people/tiago-rodrigues)
+
+[Purchase here 😃](https://cottonbureau.com/people/tiago-rodrigues)
+
 ## Resources Created
 
 - `aws_ses_domain_identity`
@@ -33,15 +41,6 @@ module "ses" {
 ## Examples
 
 - [Complete SES](https://github.com/tigpt/terraform-aws-ses/tree/main/examples/complete) with multiple account setup.
-
-## Support
-
-Do you want to help me maintain this module? Buy an AWS SES t-shirt!
-
-[![Buy an AWS SES t-shirt](https://cottonbureau.com/mockup?vid=20449976&hash=84sz&w=120)](https://cottonbureau.com/people/tiago-rodrigues)
-
-
-[Purchase here 😃](https://cottonbureau.com/people/tiago-rodrigues)
 
 ## Contributing
 
